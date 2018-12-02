@@ -47,6 +47,9 @@ class KabumSpider(scrapy.Spider):
         # Fetch navigation list
         item['navigation'] = [li.split('>')[0].strip() for li in response.xpath('//ol[contains(@itemtype,"http://schema.org/BreadcrumbList")]/li/a/text()').extract()]
 
+        # Fetch vendor name
+        item['vendor_name'] = 'Kabum eletronicos'
+
         # Fetch product prices
         prices = {
             'old_price': response.xpath('//div[@class="preco_antigo"]/text()').re(r'\d*\.*\d+\,\d+'),
@@ -72,5 +75,7 @@ class KabumSpider(scrapy.Spider):
             name = feat.split(':')[0].strip()
             value = feat.split(':')[1].strip()
             features.append({'name':name, 'value':value})
+        
+        item['features'] = features
 
         yield item
