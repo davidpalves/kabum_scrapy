@@ -96,4 +96,4 @@ scrapy crawl kabum
 | Configuração de banco de dados | 1h |
 | Criação de pipeline e configuração do Scrapy | 1h |
 | Revisão de código e ajustes finais | 2h |
-| **Total** | 15h |
+| **Total** | **15h** |
