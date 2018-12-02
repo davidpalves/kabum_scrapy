@@ -34,7 +34,7 @@ Crie a collection produtos:
 db.createCollection("produtos");
 ```
 
-#### [Depois de executar a spider, para visualizar o dataset, utilize o comando:](#)
+#### [Depois de executar a spider, para visualizar o dataset, utilize o comando:](https://github.com/DavidPierre21/kabum_scrapy#instru%C3%A7%C3%B5es-para-execu%C3%A7%C3%A3o-do-projeto)
 ```
 db.produtos.find();
 ```
