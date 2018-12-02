@@ -7,10 +7,10 @@ Site escolhido: www.kabum.com.br/
 ------------------------------------------------------
 
 #### Links para instruções do projeto
-1. [Requerimentos do Projeto](https://github.com/DavidPierre21/kabum_scrapy#requerimentos-para-o-projeto)
-2. [Configuração do MongoDB](https://github.com/DavidPierre21/kabum_scrapy#configurando-mongodb)
-3. [Execução do projeto](https://github.com/DavidPierre21/kabum_scrapy#instru%C3%A7%C3%B5es-para-execu%C3%A7%C3%A3o-do-projeto)
-4. [Tempo despendido](https://github.com/DavidPierre21/kabum_scrapy#tempo-gasto)
+* [Requerimentos do Projeto](https://github.com/DavidPierre21/kabum_scrapy#requerimentos-para-o-projeto)
+* [Configuração do MongoDB](https://github.com/DavidPierre21/kabum_scrapy#configurando-mongodb)
+* [Execução do projeto](https://github.com/DavidPierre21/kabum_scrapy#instru%C3%A7%C3%B5es-para-execu%C3%A7%C3%A3o-do-projeto)
+* [Tempo despendido](https://github.com/DavidPierre21/kabum_scrapy#tempo-gasto)
 
 ------------------------------------------------------
 
