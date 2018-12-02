@@ -5,6 +5,13 @@
 Site escolhido: www.kabum.com.br/
 
 
+#### Links para instruções do projeto
+1. [Requerimentos do Projeto](https://github.com/DavidPierre21/kabum_scrapy#requerimentos-para-o-projeto)
+2. [Configuração do MongoDB](https://github.com/DavidPierre21/kabum_scrapy#configurando-mongodb)
+3. [Execução do projeto](https://github.com/DavidPierre21/kabum_scrapy#instru%C3%A7%C3%B5es-para-execu%C3%A7%C3%A3o-do-projeto)
+4. [Tempo despendido](https://github.com/DavidPierre21/kabum_scrapy#tempo-gasto)
+
+
 
 #### Requerimentos para o projeto
 1. [Python 3](https://www.python.org/)
@@ -15,11 +22,25 @@ Site escolhido: www.kabum.com.br/
 #### Configurando MongoDB
 O projeto usa um database chamado "kabum" e uma collections chamado "produtos"
 O servidor do database esta configurado para o localhost e na porta 27017
+
+Antes de tudo, o serviço do MongoDB deve estar rodando, no Linux, utilize:
+```
+sudo service start mongod
+```
+
+Caso queira verificar o status do serviço
+```
+sudo service status mongod
+```
+
+--------------------------------------------------------
+Para abrir o shell do Mongo, podemos utilizar:
+
 ```
 mongo
 ```
 
-ou
+ou, para o modo "silencioso"
 ```
 mongo --quiet
 ```
@@ -71,7 +92,8 @@ scrapy crawl kabum
 | Escolhendo site | 2h |
 | Configuração do ambiente | 1h |
 | Estudos para projeto | 2h |
-| Desenvolvimento do Crawler | 8h |
+| Desenvolvimento do Crawler | 6h |
 | Configuração de banco de dados | 1h |
 | Criação de pipeline e configuração do Scrapy | 1h |
+| Revisão de código e ajustes finais | 2h |
 | **Total** | 15h |
