@@ -4,6 +4,7 @@
 
 Site escolhido: www.kabum.com.br/
 
+------------------------------------------------------
 
 #### Links para instruções do projeto
 1. [Requerimentos do Projeto](https://github.com/DavidPierre21/kabum_scrapy#requerimentos-para-o-projeto)
@@ -11,13 +12,15 @@ Site escolhido: www.kabum.com.br/
 3. [Execução do projeto](https://github.com/DavidPierre21/kabum_scrapy#instru%C3%A7%C3%B5es-para-execu%C3%A7%C3%A3o-do-projeto)
 4. [Tempo despendido](https://github.com/DavidPierre21/kabum_scrapy#tempo-gasto)
 
-
+------------------------------------------------------
 
 #### Requerimentos para o projeto
 1. [Python 3](https://www.python.org/)
 2. [Mongodb](https://www.mongodb.com/)
 3. [Pymongo](https://api.mongodb.com/python/current/)
 4. [Scrapy](https://scrapy.org/)
+
+------------------------------------------------------
 
 #### Configurando MongoDB
 O projeto usa um database chamado "kabum" e uma collections chamado "produtos"
@@ -65,6 +68,8 @@ e caso queira exportar para json, fora do shell do Mongodb, utilize:
 mongoexport --db kabum --collection produtos --out produtos.json 
 ```
 
+--------------------------------------------------------
+
 #### Instruções para execução do projeto
 
 1. Clone o repositório
@@ -85,6 +90,8 @@ cd intelivix_teste
 ```
 scrapy crawl kabum
 ```
+
+--------------------------------------------------------
 
 #### Tempo gasto
 | Atividade | Tempo Gasto |
