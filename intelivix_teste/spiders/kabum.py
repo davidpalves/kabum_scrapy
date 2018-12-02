@@ -28,44 +28,44 @@ class KabumSpider(scrapy.Spider):
 
         item['url'] = response.url
             
-        item['name'] = response.xpath('//div[@id="titulo_det"]/h1[@class="titulo_det"]/text()').extract_first()
+        item['nome'] = response.xpath('//div[@id="titulo_det"]/h1[@class="titulo_det"]/text()').extract_first()
 
-        item['description'] = response.xpath('//p[contains(@itemprop,"description")]/text()').extract_first()
+        item['descricao'] = response.xpath('//p[contains(@itemprop,"description")]/text()').extract_first()
 
-        item['category'] = response.xpath('//h2[@class="h2titcategoria"]/text()').extract_first()
+        item['categoria'] = response.xpath('//h2[@class="h2titcategoria"]/text()').extract_first()
 
         try:
-            item['brand'] = response.xpath('//p[contains(text(),"Marca:")]/text()').extract_first().split(':')[1].strip()
+            item['marca'] = response.xpath('//p[contains(text(),"Marca:")]/text()').extract_first().split(':')[1].strip()
         except AttributeError:
-            self.logger.debug('Failed to extract brand on %s', response.url)
+            self.logger.debug('Falha ao extrair marca em %s', response.url)
             pass
 
-        item['navigation'] = [li.split('>')[0].strip() for li in response.xpath('//ol[contains(@itemtype,"http://schema.org/BreadcrumbList")]/li/a/text()').extract()]
+        item['navegacao'] = [li.split('>')[0].strip() for li in response.xpath('//ol[contains(@itemtype,"http://schema.org/BreadcrumbList")]/li/a/text()').extract()]
 
-        item['vendor_name'] = 'Kabum eletronicos'
+        item['nome_vendedor'] = 'Kabum eletronicos'
 
-        prices = {
-            'current_price': response.xpath('//div[@class="preco_normal"]/text()').re(r'\d*\.*\d+\,\d+'),
-            'discount_price': response.xpath('//span[@class="preco_desconto"]/span/span/strong/text()').re(r'\d*\.*\d+\,\d+')
+        precos = {
+            'preco_normal': response.xpath('//div[@class="preco_normal"]/text()').re(r'\d*\.*\d+\,\d+'),
+            'preco_disconto': response.xpath('//span[@class="preco_desconto"]/span/span/strong/text()').re(r'\d*\.*\d+\,\d+')
         }
 
-        for key in prices.keys():
-            if len(prices[key]) > 0:
-                item[key] = float(prices[key][0].replace('.','').replace(',','.'))
+        for key in precos.keys():
+            if len(precos[key]) > 0:
+                item[key] = float(precos[key][0].replace('.','').replace(',','.'))
             else:
                 self.logger.debug('{} not found on %s'.format(key), 
                     response.url)  
 
-        images = response.xpath('//ul[@id="imagens-carrossel"]/li/img/@src')
-        item['main_image'] = images.extract_first()
-        item['secondary_images'] = images.extract()[1:]
+        imagens = response.xpath('//ul[@id="imagens-carrossel"]/li/img/@src')
+        item['imagem_principal'] = imagens.extract_first()
+        item['imagens_secundarias'] = imagens.extract()[1:]
 
-        features = []
-        for feat in response.xpath('//div[@class="content_tab"]/p/text()').re(r'\w+\:[\s\S]*'):
-            name = feat.split(':')[0].strip()
-            value = feat.split(':')[1].strip()
-            features.append({'name':name, 'value':value})
+        caracteristicas = []
+        for carac in response.xpath('//div[@class="content_tab"]/p/text()').re(r'\w+\:[\s\S]*'):
+            nome = carac.split(':')[0].strip()
+            valor = carac.split(':')[1].strip()
+            caracteristicas.append({'nome':nome, 'valor':valor})
         
-        item['features'] = features
+        item['caracteristicas'] = caracteristicas
 
         yield item
