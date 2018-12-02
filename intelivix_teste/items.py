@@ -17,7 +17,6 @@ class KabumItem(scrapy.Item):
     navigation = scrapy.Field()
     vendor_name = scrapy.Field()
     current_price = scrapy.Field()
-    old_price = scrapy.Field()
     discount_price = scrapy.Field()
     main_image = scrapy.Field()
     secondary_images = scrapy.Field()
