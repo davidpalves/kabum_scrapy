@@ -1,12 +1,13 @@
 import scrapy
 from intelivix_teste.items import KabumItem
 
-produto = str(input("Digite o produto a ser buscado: "))
-
 class KabumSpider(scrapy.Spider):
     name = 'kabum'
-    url = str('https://www.kabum.com.br/cgi-local/site/listagem/listagem.cgi?ordem=5&limite=100&pagina=1&string='+produto)
-    start_urls = [url]
+
+
+    def __init__(self, produto=None, *args, **kwargs):
+        super(KabumSpider, self).__init__(*args, **kwargs)
+        self.start_urls = ['https://www.kabum.com.br/cgi-local/site/listagem/listagem.cgi?ordem=5&limite=100&pagina=1&string=%s' % produto]
 
 
     def parse(self, response):
