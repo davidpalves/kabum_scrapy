@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import scrapy
 from intelivix_teste.items import KabumItem
 
@@ -7,8 +6,8 @@ produto = str(input("Digite o produto a ser buscado: "))
 class KabumSpider(scrapy.Spider):
     name = 'kabum'
     url = str('https://www.kabum.com.br/cgi-local/site/listagem/listagem.cgi?ordem=5&limite=100&pagina=1&string='+produto)
-    # allowed_domains = [url]
     start_urls = [url]
+
 
     def parse(self, response):
         pages = response.xpath('//div[@class="listagem-box"]/div[@class="listagem-titulo_descr"]/span[@class="H-titulo"]/a')
@@ -19,8 +18,6 @@ class KabumSpider(scrapy.Spider):
         next_page_container = response.xpath('//div[@class="listagem-paginacao"]/form/table/tr/td/a[contains(text(),"Proxima")]')
         if len(next_page_container) > 0:
             yield response.follow(next_page_container[0], callback=self.parse)
-
-
 
 
     def parse_item(self, response):
