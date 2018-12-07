@@ -86,9 +86,14 @@ cd intelivix_teste
 ```
 cd intelivix_teste
 ```
-4. Finalmente, execute:
+4. Finalmente, execute, passando como argumento o produto a ser buscado:
 ```
-scrapy crawl kabum
+scrapy crawl kabum -a produto=celular
+```
+
+Outro exemplo pode ser:
+```
+scrapy crawl kabum -a produto=sony
 ```
 
 --------------------------------------------------------
