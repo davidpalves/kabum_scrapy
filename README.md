@@ -1,7 +1,5 @@
 # Scraping Kabum site
 
-#### Projeto feito para processo seletivo da Intelivix
-
 Site escolhido: www.kabum.com.br/
 
 ------------------------------------------------------
